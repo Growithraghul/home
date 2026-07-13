@@ -53,20 +53,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Contact form (static demo — opens mail client with prefilled message)
   const form = document.getElementById('contact-form');
+  const SCRIPT_URL = "PASTE_YOUR_WEB_APP_URL_HERE";
+
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const name = form.name.value.trim();
-      const email = form.email.value.trim();
-      const service = form.service.value;
-      const message = form.message.value.trim();
-      const subject = encodeURIComponent(`New enquiry from ${name} — GROWITHRAGHUL`);
-      const body = encodeURIComponent(
-        `Name: ${name}\nEmail: ${email}\nService interested in: ${service}\n\nMessage:\n${message}`
-      );
-      window.location.href = `mailto:growithraghul@gmail.com?subject=${subject}&body=${body}`;
       const note = document.getElementById('form-note');
-      if (note) note.textContent = "Opening your email app to send this — or reach us directly at growithraghul@gmail.com";
+      const submitBtn = form.querySelector('button[type="submit"]');
+
+      const payload = {
+        name: form.name.value.trim(),
+        email: form.email.value.trim(),
+        phone: form.phone.value.trim(),
+        service: form.service.value,
+        message: form.message.value.trim()
+      };
+
+      if (submitBtn) submitBtn.disabled = true;
+      if (note) note.textContent = "Sending...";
+
+      fetch(SCRIPT_URL, {
+        method: "POST",
+        body: JSON.stringify(payload)
+      })
+      .then(() => {
+        if (note) note.textContent = "Thanks! Your message has been sent — we'll get back to you soon.";
+        form.reset();
+      })
+      .catch(() => {
+        if (note) note.textContent = "Something went wrong. Please email us directly at growithraghul@gmail.com";
+      })
+      .finally(() => {
+        if (submitBtn) submitBtn.disabled = false;
+      });
     });
   }
 });
