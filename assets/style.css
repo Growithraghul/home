@@ -612,3 +612,97 @@ img { max-width: 100%; display: block; }
 @media (max-width: 480px) {
   .popup-modal { padding: 34px 22px 28px; }
 }
+
+/* Profile / Founder ------------------------------------------------ */
+.profile-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 56px;
+  align-items: center;
+}
+@media (max-width: 860px) {
+  .profile-grid { grid-template-columns: 1fr; gap: 60px; }
+}
+
+.profile-photo-wrap {
+  position: relative;
+  max-width: 380px;
+  margin: 0 auto;
+}
+.profile-photo-wrap::before {
+  content: '';
+  position: absolute;
+  top: 18px; left: 18px;
+  width: 100%; height: 100%;
+  background: var(--green-tint);
+  border: 1.5px solid var(--green);
+  border-radius: 20px;
+  z-index: 0;
+}
+.profile-photo {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  display: block;
+}
+.profile-float-badge {
+  position: absolute;
+  bottom: -22px; right: -22px;
+  z-index: 2;
+  background: var(--blue-dark);
+  color: var(--white);
+  border-radius: 16px;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: var(--shadow);
+  border: 3px solid var(--white);
+}
+.pfb-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--green-bright);
+  line-height: 1;
+}
+.pfb-label {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(255,255,255,0.7);
+  margin-top: 4px;
+  line-height: 1.3;
+}
+
+.hl-accent { color: var(--green); }
+
+.profile-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin: 28px 0 30px;
+  padding: 22px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.ps-item .ps-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--green);
+}
+.ps-item .ps-label {
+  font-size: 0.78rem;
+  color: var(--gray);
+  margin-top: 2px;
+}
+@media (max-width: 500px) {
+  .profile-stats { grid-template-columns: 1fr; gap: 12px; text-align: left; }
+  .profile-float-badge { bottom: -16px; right: -12px; padding: 12px 16px; }
+}
