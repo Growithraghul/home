@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Contact form (static demo — opens mail client with prefilled message)
   const form = document.getElementById('contact-form');
-  const SCRIPT_URL = "PASTE_YOUR_WEB_APP_URL_HERE";
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzY4L_5zqEkfmKbaHq0DQKBG5depgSln1019QFOrIA9KdSZtX97Lfoka224NNQhTxmb/exec";
 
   if (form) {
     form.addEventListener('submit', (e) => {
