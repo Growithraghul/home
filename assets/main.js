@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
     overlay.innerHTML = `
       <div class="popup-modal">
         <button type="button" class="popup-close" aria-label="Close">&times;</button>
-        <img src="https://i.ibb.co/Z1kQzSK6/Header.png" alt="GROWITHRAGHUL" class="popup-logo">
+        <img src="https://i.ibb.co/5Wf4BJgJ/Header.png" alt="GROWITHRAGHUL" class="popup-logo">
         <h3>Get a Free Growth Consultation</h3>
         <p class="popup-sub">Tell us a bit about you — we'll get back with a free plan.</p>
         <form id="popup-form">
